@@ -221,10 +221,10 @@ def main_worker(gpu, ngpus_per_node, args):
     else:
         mode = 'w'
 
-    train_logger = Logger(os.path.join(args.result_path, 'train.log'),
+    train_logger = Logger(os.path.join(args.result_path, '/train.log'),
                           ['epoch', 'loss', 'acc1', 'acc5', 'lr'], mode=mode)
 
-    val_logger = Logger(os.path.join(args.result_path, 'val.log'), ['epoch', 'loss', 'acc1', 'acc5'], mode=mode)
+    val_logger = Logger(os.path.join(args.result_path, '/val.log'), ['epoch', 'loss', 'acc1', 'acc5'], mode=mode)
 
     for epoch in range(args.start_epoch, args.epochs):
         if args.distributed:
@@ -271,33 +271,6 @@ def main_worker(gpu, ngpus_per_node, args):
                 'val_acc1': val_acc1,
                 'optimizer': optimizer.state_dict(),
             }, is_best, args.result_path + '/')
-        '''
-        if not args.multiprocessing_distributed or (args.multiprocessing_distributed
-                and args.rank % ngpus_per_node == 0):
-            save_checkpoint({
-                'epoch': epoch + 1,
-                'arch': args.arch,
-                'state_dict': model.state_dict(),
-                'best_acc1': best_acc1,
-                'optimizer': optimizer.state_dict(),
-            }, is_best)
-        '''
-        '''
-        if not args.multiprocessing_distributed or (args.multiprocessing_distributed
-                                                    and args.rank % ngpus_per_node == 0):
-            if (epoch+1) % args.checkpoint == 0:
-                save_file_path = os.path.join(args.result_path,
-                                              'save_{}.pth'.format(epoch+1))
-                print('Saving the model: ', save_file_path)
-                states = {
-                    'epoch': epoch + 1,
-                    'arch': args.arch,
-                    'model_depth': args.model_depth,
-                    'state_dict': model.state_dict(),
-                    'optimizer': optimizer.state_dict(),
-                }
-                torch.save(states, save_file_path)
-        '''
 
 
 def train(train_loader, model, criterion, optimizer, epoch, args):
