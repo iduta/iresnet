@@ -1,2 +1,0 @@
-# iresnet
-Improved Residual Networks
