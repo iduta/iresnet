@@ -7,16 +7,19 @@ def build_model(args):
 
         if args.model_depth == 18:
             model = iresgroupfix.iresgroupfix50(
+                pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
         elif args.model_depth == 34:
             model = iresgroupfix.iresgroupfix101(
+                pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
         elif args.model_depth == 50:
             model = iresgroupfix.iresgroupfix152(
+                pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
@@ -25,16 +28,19 @@ def build_model(args):
 
         if args.model_depth == 18:
             model = iresgroup.iresgroup50(
+                pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
         elif args.model_depth == 34:
             model = iresgroup.iresgroup101(
+                pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
         elif args.model_depth == 50:
             model = iresgroup.iresgroup152(
+                pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
