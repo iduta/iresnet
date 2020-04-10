@@ -221,10 +221,10 @@ def main_worker(gpu, ngpus_per_node, args):
     else:
         mode = 'w'
 
-    train_logger = Logger(os.path.join(args.result_path, '/train.log'),
+    train_logger = Logger(os.path.join(args.result_path, 'train.log'),
                           ['epoch', 'loss', 'acc1', 'acc5', 'lr'], mode=mode)
 
-    val_logger = Logger(os.path.join(args.result_path, '/val.log'), ['epoch', 'loss', 'acc1', 'acc5'], mode=mode)
+    val_logger = Logger(os.path.join(args.result_path, 'val.log'), ['epoch', 'loss', 'acc1', 'acc5'], mode=mode)
 
     for epoch in range(args.start_epoch, args.epochs):
         if args.distributed:
