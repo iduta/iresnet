@@ -1,11 +1,11 @@
 ## Improved Residual Networks
 
-This is a PyTorch implementation of [iResNet paper](https://arxiv.org/abs/):
+This is a PyTorch implementation of [iResNet paper](https://arxiv.org/abs/2004.04989):
 ```
 @article{duta2020improved,
   author  = {Ionut Cosmin Duta and Li Liu and Fan Zhu and Ling Shao},
   title   = {Improved Residual Networks for Image and Video Recognition},
-  journal = {arXiv preprint arXiv:???},
+  journal = {arXiv preprint arXiv:2004.04989},
   year    = {2020},
 }
 ```
@@ -17,7 +17,7 @@ The models trained on ImageNet can be found [here](https://drive.google.com/open
 The iResNet (improved residual network) is able to improve the baseline (ResNet) 
 in terms of recognition performance without increasing the number of parameters
 and computational costs. The iResNet is very effective in training very deep models 
-(see [the paper]() for details).
+(see [the paper](https://arxiv.org/pdf/2004.04989.pdf) for details).
 
 The accuracy on ImageNet (using the default training settings):
 
