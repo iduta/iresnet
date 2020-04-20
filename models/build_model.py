@@ -1,65 +1,68 @@
-from models import resnet, resstage, iresnet, resgroup, resgroupfix, iresgroup, iresgroupfix
+from models import resnet, resstage, iresnet, resgroup, resgroupfix, iresgroupfix, iresgroup
 
 
 def build_model(args):
 
-    if args.arch == 'iresgroupfix':
-
-        if args.model_depth == 18:
-            model = iresgroupfix.iresgroupfix50(
-                pretrained=args.pretrained,
-                num_classes=args.n_classes,
-                zero_init_residual=args.zero_init_residual,
-                groups=args.groups)
-        elif args.model_depth == 34:
-            model = iresgroupfix.iresgroupfix101(
-                pretrained=args.pretrained,
-                num_classes=args.n_classes,
-                zero_init_residual=args.zero_init_residual,
-                groups=args.groups)
-        elif args.model_depth == 50:
-            model = iresgroupfix.iresgroupfix152(
-                pretrained=args.pretrained,
-                num_classes=args.n_classes,
-                zero_init_residual=args.zero_init_residual,
-                groups=args.groups)
-
     if args.arch == 'iresgroup':
+        assert args.model_depth in [50, 101, 152]
 
-        if args.model_depth == 18:
+        if args.model_depth == 50:
             model = iresgroup.iresgroup50(
                 pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
-        elif args.model_depth == 34:
+        elif args.model_depth == 101:
             model = iresgroup.iresgroup101(
                 pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
-        elif args.model_depth == 50:
+        elif args.model_depth == 152:
             model = iresgroup.iresgroup152(
                 pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
 
-    if args.arch == 'resgroupfix':
+    if args.arch == 'iresgroupfix':
+        assert args.model_depth in [50, 101, 152]
 
-        if args.model_depth == 18:
+        if args.model_depth == 50:
+            model = iresgroupfix.iresgroupfix50(
+                pretrained=args.pretrained,
+                num_classes=args.n_classes,
+                zero_init_residual=args.zero_init_residual,
+                groups=args.groups)
+        elif args.model_depth == 101:
+            model = iresgroupfix.iresgroupfix101(
+                pretrained=args.pretrained,
+                num_classes=args.n_classes,
+                zero_init_residual=args.zero_init_residual,
+                groups=args.groups)
+        elif args.model_depth == 152:
+            model = iresgroupfix.iresgroupfix152(
+                pretrained=args.pretrained,
+                num_classes=args.n_classes,
+                zero_init_residual=args.zero_init_residual,
+                groups=args.groups)
+
+    if args.arch == 'resgroupfix':
+        assert args.model_depth in [50, 101, 152]
+
+        if args.model_depth == 50:
             model = resgroupfix.resgroupfix50(
                 pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
-        elif args.model_depth == 34:
+        elif args.model_depth == 101:
             model = resgroupfix.resgroupfix101(
                 pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
-        elif args.model_depth == 50:
+        elif args.model_depth == 152:
             model = resgroupfix.resgroupfix152(
                 pretrained=args.pretrained,
                 num_classes=args.n_classes,
@@ -67,20 +70,21 @@ def build_model(args):
                 groups=args.groups)
 
     if args.arch == 'resgroup':
+        assert args.model_depth in [50, 101, 152]
 
-        if args.model_depth == 18:
+        if args.model_depth == 50:
             model = resgroup.resgroup50(
                 pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
-        elif args.model_depth == 34:
+        elif args.model_depth == 101:
             model = resgroup.resgroup101(
                 pretrained=args.pretrained,
                 num_classes=args.n_classes,
                 zero_init_residual=args.zero_init_residual,
                 groups=args.groups)
-        elif args.model_depth == 50:
+        elif args.model_depth == 152:
             model = resgroup.resgroup152(
                 pretrained=args.pretrained,
                 num_classes=args.n_classes,
@@ -88,6 +92,7 @@ def build_model(args):
                 groups=args.groups)
 
     if args.arch == 'iresnet':
+        assert args.model_depth in [18, 34, 50, 101, 152, 200, 302, 404, 1001]
 
         if args.model_depth == 18:
             model = iresnet.iresnet18(
@@ -136,6 +141,7 @@ def build_model(args):
                 zero_init_residual=args.zero_init_residual)
 
     if args.arch == 'resstage':
+        assert args.model_depth in [18, 34, 50, 101, 152, 200]
 
         if args.model_depth == 18:
             model = resstage.resstage18(
@@ -169,6 +175,7 @@ def build_model(args):
                 zero_init_residual=args.zero_init_residual)
 
     if args.arch == 'resnet':
+        assert args.model_depth in [18, 34, 50, 101, 152, 200]
 
         if args.model_depth == 18:
             model = resnet.resnet18(
