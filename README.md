@@ -1,6 +1,6 @@
 ## Improved Residual Networks
 
-This is a PyTorch implementation of [iResNet paper](https://arxiv.org/abs/2004.04989):
+This is a PyTorch implementation of ["Improved Residual Networks for Image and Video Recognition"](https://arxiv.org/abs/2004.04989) paper:
 ```
 @article{duta2020improved,
   author  = {Ionut Cosmin Duta and Li Liu and Fan Zhu and Ling Shao},
