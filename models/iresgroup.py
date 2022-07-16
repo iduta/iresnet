@@ -58,7 +58,7 @@ class ResGroupBlock(nn.Module):
         if end_block:
             self.bn3 = norm_layer(planes // self.reduction)
 
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU()
         self.downsample = downsample
         self.stride = stride
 

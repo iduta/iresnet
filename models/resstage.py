@@ -51,7 +51,7 @@ class BasicBlock(nn.Module):
 
         self.conv1 = conv3x3(inplanes, planes, stride)
         self.bn1 = norm_layer(planes)
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU()
         self.conv2 = conv3x3(planes, planes)
 
         if start_block:
@@ -125,7 +125,7 @@ class Bottleneck(nn.Module):
         if end_block:
             self.bn3 = norm_layer(planes * self.expansion)
 
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU()
         self.downsample = downsample
         self.stride = stride
 
